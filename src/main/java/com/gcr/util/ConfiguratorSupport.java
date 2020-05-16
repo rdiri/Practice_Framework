@@ -7,6 +7,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Properties;
 
+// this class is has methods to read data & write data from config.properties
+
 public class ConfiguratorSupport {
 	static Properties props = new Properties();
 	String strFileName;

@@ -28,6 +28,7 @@ public class StartBrowser {
 	ExtentHtmlReporter htmlReporter;
 	String method;
   
+	/* below method is to instantiate the report at the start of the test*/
 	
 	@BeforeTest
 	public void generatereport()
@@ -38,11 +39,15 @@ public class StartBrowser {
 		
 	}
 	
+	/* Below method is to get the method names dynamically before executing any method */
+	
 	@BeforeMethod
 	public void methhodName(Method method)
 	{
 		parentTest = extent.createTest(method.getName());
 	}
+	
+	/* method to launch browser which is indicated in config.properties file that is read using ConfiguratorSupport class*/
   @BeforeClass
   public void beforeClass() {
 	  String browser=cs.getProperty("browser");
@@ -68,8 +73,10 @@ public class StartBrowser {
 
   @AfterClass
   public void afterClass() {
-	  driver.quit();
-	  extent.flush();
+	  driver.quit(); // will close all the browser instances created during the execution.
+	  extent.flush(); 
+	  // Will close the extent report soon after the execution is completed. 
+	  //Without this flush command the report will not be create
   }
 
 }

@@ -3,48 +3,38 @@ package com.gcr.reuse;
 import org.openqa.selenium.WebDriver;
 
 import com.gcr.config.StartBrowser;
-import com.gcr.objectrepository.AtHomeHomePage;
-import com.gcr.objectrepository.AtHomeLoginPage;
+import com.gcr.objectrepository.HomePage;
 import com.gcr.objectrepository.LoginPage;
 import com.gcr.wdcmds.ActionDriver;
 
 public class CommonFunctions {
-	
 	public WebDriver driver;
 	public ActionDriver aDriver;
 	
 	public CommonFunctions()
+	
 	{
 		driver = StartBrowser.driver;
-		aDriver = new ActionDriver();
+		aDriver= new ActionDriver();
 	}
-
 	
 	public void login() throws Exception
 	{
-		StartBrowser.childTest = StartBrowser.parentTest.createNode("Login");
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Login"); 
 		aDriver.navigateToApplication();
-		aDriver.type(LoginPage.txtUserName, "anil", "username tex box");
-		aDriver.type(LoginPage.txtPassword, "anil", "Password text box");
-		aDriver.click(LoginPage.btnSignin, "Sign in button");
+		aDriver.click(HomePage.lnkSignIn, "Sign in Link");
+		aDriver.type(LoginPage.txtEmaiId, "dvrama@gmail.com", "Email Id text box");
+		aDriver.type(LoginPage.txtPassword, "dvrama", "Password text box");
+		aDriver.click(LoginPage.btnSignIn, "Sign in Button");
 		
 	}
 	
-	public void atHomeLogin() throws Exception
+	public void logout() throws Exception
 	{
-		StartBrowser.childTest = StartBrowser.parentTest.createNode("AtHome Login");
-		aDriver.navigateToApplication();
-		aDriver.type(AtHomeLoginPage.txtuserName, "nagatraining@gmail.com", "Usernmae text field");
-		aDriver.type(AtHomeLoginPage.txtPassword, "Sample@1234", "Password text field");
-		aDriver.click(AtHomeLoginPage.btnSignIn, "Sign In button");
-		
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Log out"); 
+		aDriver.click(HomePage.lnkSignout, "Sign out link");
 	}
-	
-	public void atHomeLogout() throws Exception
-	{
-		StartBrowser.childTest = StartBrowser.parentTest.createNode("AtHome Logout");
-		aDriver.mouseHover(AtHomeHomePage.menuAccount, "Menu Account");
-		aDriver.click(AtHomeHomePage.lnkLogout, "Logout link");
-		
-	}
+
 }
+////a[contains(@title,'Contact')]
+//*[contains(@title,'Contact')]

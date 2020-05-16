@@ -1,7 +1,5 @@
 package com.gcr.wdcmds;
 
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -20,7 +18,8 @@ public class ActionDriver {
 	
 	public ActionDriver()
 	{
-		driver = StartBrowser.driver;
+		driver = StartBrowser.driver;   
+		// will give control to driver in start Browser class that has methods to execute before test, before class , after class and before method.
 	}
 
 	/**
@@ -93,6 +92,27 @@ public class ActionDriver {
 			StartBrowser.childTest.info(e);
 			throw e;
 		}
+	}
+	/**
+	 * to verify the given text is present in a location or not
+	 * @param locator -- Text location
+	 * @param expMsg -- MEssage we are expecting
+	 * @throws Exception
+	 */
+	public void verifyText(By locator, String expMsg) throws Exception
+	{
+		String actMsg=driver.findElement(locator).getText();
+		if(actMsg.equals(expMsg))
+		{
+			StartBrowser.childTest.pass("Expected text is available : "+ expMsg);	
+		}
+		else
+		{
+			StartBrowser.childTest.fail("Actual msg is : "+actMsg + " and Expected message is : "+expMsg,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			throw new Exception();
+		}
+		
 	}
 	
 	public String screenShot()
