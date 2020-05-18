@@ -2,9 +2,9 @@ package com.gcr.objectrepository;
 
 import org.openqa.selenium.By;
 
-public class CreatAccount_PersonalInfoPage 
+public class CreatNewAccount_Page 
 {
-	public static By rdTitle = By.name("id_gender");
+	public static By rdBtnTitle = By.name("id_gender");
 	public static By txtCustomerFirstname = By.id("customer_firstname");
 	public static By txtCustomerLastname = By.id("customer_lastname");
 	public static By txtEmailidvalidate = By.xpath("//input[@data-validate='isEmail']");       // check how this works
@@ -23,7 +23,7 @@ public class CreatAccount_PersonalInfoPage
 	public static By TxtCity1 = By.id("city");
 	public static By drpState = By.id("id_state");
 	public static By txtPostalCode = By.className("postcode");
-	public static By chkCountry = By.id("id_country");
+	public static By drpCountry = By.id("id_country");
 	
 	public static By drpother = By.id("other");
 	public static By txtHomePhone = By.id("phone");
