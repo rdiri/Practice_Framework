@@ -29,6 +29,18 @@ public class CommonFunctions {
 		
 	}
 	
+	public void login(String emailid, String password) throws Exception
+	{
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Login Excel"); 
+		aDriver.navigateToApplication();
+		aDriver.click(HomePage.lnkSignIn, "Sign in Link");
+		aDriver.type(LoginPage.txtEmaiId, emailid, "Email Id text box");
+		aDriver.type(LoginPage.txtPassword, password, "Password text box");
+		aDriver.click(LoginPage.btnSignIn, "Sign in Button");
+		
+	}
+	
+	
 	public void logout() throws Exception
 	{
 		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Log out"); 

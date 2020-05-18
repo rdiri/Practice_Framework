@@ -1,11 +1,14 @@
 package com.gcr.wdcmds;
 
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.gcr.config.StartBrowser;
@@ -113,7 +116,81 @@ public class ActionDriver {
 			throw new Exception();
 		}
 		
+		
+		
 	}
+	
+	/**
+	 * To select the value from dropdown
+	 * @param locator - dropdown locator
+	 * @param visibleText - visible text to be selected from dropdown
+	 * @param eleName - dropdown name
+	 * @throws IOException
+	 */
+	public void selectTxtFromDropDown(By locator, String visibleText, String eleName) throws IOException
+	{ 
+		try
+		{
+		WebElement dd=driver.findElement(locator);
+		Select s = new Select(dd);
+		s.selectByVisibleText(visibleText);
+		StartBrowser.childTest.pass("Successfully selected " + visibleText + "from: " +eleName);	
+		}
+		catch(Exception e)
+		{
+			StartBrowser.childTest.fail("Unable to select " + visibleText + "from: " +eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @param locator - Dropdown WebElement been located.
+	 * @param i - Provide Value attribute of the dropdown element being inspected.
+	 * @param eleName - Provide name of the dropdown being use for the program.
+	 * @throws IOException
+	 */
+	
+	public void selectValueFromDropDown(By locator, String i, String eleName) throws IOException
+	{
+		try
+		{
+			WebElement dd=driver.findElement(locator);
+			Select s = new Select(dd);
+			s.selectByValue(i);
+			StartBrowser.childTest.pass("Successfully selected " + i + "from: " +eleName);
+		}
+		catch(Exception e)
+		{
+			StartBrowser.childTest.fail("Unable to select " + i + "from: " +eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+				
+	}
+	
+	public void selectIndexFromDropDown(By locator, int Index, String eleName) throws IOException
+	{
+		try
+		{
+			WebElement dd=driver.findElement(locator);
+			Select s = new Select(dd);
+			s.selectByIndex(Index);
+			StartBrowser.childTest.pass("Successfully selected " + Index + "from: " +eleName);
+		}
+		catch(Exception e)
+		{
+			StartBrowser.childTest.fail("Unable to select " + Index + "from: " +eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+	}
+
 	
 	public String screenShot()
 	{

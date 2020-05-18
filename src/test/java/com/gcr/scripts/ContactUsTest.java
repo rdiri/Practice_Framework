@@ -19,12 +19,6 @@ public class ContactUsTest extends StartBrowser{
 	  CommonFunctions cf = new CommonFunctions();
 	  cf.login();
 	  aDriver = new ActionDriver(); 
-	
-	  
-	  //aDriver.driver.getCurrentUrl();
-	 
-	//did not execute here-------------------
-	  
 	  aDriver.click(ContactUsPage.lnkContactus,"Contact us Button");
 	
 	
