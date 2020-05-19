@@ -2,7 +2,7 @@ package com.gcr.objectrepository;
 
 import org.openqa.selenium.By;
 
-public class ContactUsPage 
+public class Page_ContactUs 
 {
 public static By drpSubjectHeading = By.xpath("//select[@id='id_contact']");
 public static By txtemailidDeselected = By.xpath("//input[@id='email']");

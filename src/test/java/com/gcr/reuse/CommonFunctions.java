@@ -3,8 +3,8 @@ package com.gcr.reuse;
 import org.openqa.selenium.WebDriver;
 
 import com.gcr.config.StartBrowser;
-import com.gcr.objectrepository.HomePage;
-import com.gcr.objectrepository.LoginPage;
+import com.gcr.objectrepository.Page_Home;
+import com.gcr.objectrepository.Page_Login;
 import com.gcr.wdcmds.ActionDriver;
 
 public class CommonFunctions {
@@ -22,10 +22,10 @@ public class CommonFunctions {
 	{
 		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Login"); 
 		aDriver.navigateToApplication();
-		aDriver.click(HomePage.lnkSignIn, "Sign in Link");
-		aDriver.type(LoginPage.txtEmaiId, "dvrama@gmail.com", "Email Id text box");
-		aDriver.type(LoginPage.txtPassword, "dvrama", "Password text box");
-		aDriver.click(LoginPage.btnSignIn, "Sign in Button");
+		aDriver.click(Page_Home.lnkSignIn, "Sign in Link");
+		aDriver.type(Page_Login.txtEmaiId, "dvrama@gmail.com", "Email Id text box");
+		aDriver.type(Page_Login.txtPassword, "dvrama", "Password text box");
+		aDriver.click(Page_Login.btnSignIn, "Sign in Button");
 		
 	}
 	
@@ -33,10 +33,10 @@ public class CommonFunctions {
 	{
 		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Login Excel"); 
 		aDriver.navigateToApplication();
-		aDriver.click(HomePage.lnkSignIn, "Sign in Link");
-		aDriver.type(LoginPage.txtEmaiId, emailid, "Email Id text box");
-		aDriver.type(LoginPage.txtPassword, password, "Password text box");
-		aDriver.click(LoginPage.btnSignIn, "Sign in Button");
+		aDriver.click(Page_Home.lnkSignIn, "Sign in Link");
+		aDriver.type(Page_Login.txtEmaiId, emailid, "Email Id text box");
+		aDriver.type(Page_Login.txtPassword, password, "Password text box");
+		aDriver.click(Page_Login.btnSignIn, "Sign in Button");
 		
 	}
 	
@@ -44,9 +44,16 @@ public class CommonFunctions {
 	public void logout() throws Exception
 	{
 		StartBrowser.childTest = StartBrowser.parentTest.createNode("At Home Log out"); 
-		aDriver.click(HomePage.lnkSignout, "Sign out link");
+		aDriver.click(Page_Home.lnkSignout, "Sign out link");
 	}
 
+	public void search(String productName) throws Exception 
+	{
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("Search for Product  :" + productName); 
+		aDriver.type(Page_Home.txtSearchbox, productName, "Typed on search - Text box");
+		aDriver.click(Page_Home.txtSearchbox, "Searchh button");
+		aDriver.click(Page_Home.btnSubmitSearch, "Clicked on Search - button");
+	}
 }
 ////a[contains(@title,'Contact')]
 //*[contains(@title,'Contact')]

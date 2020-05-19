@@ -4,12 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.gcr.config.StartBrowser;
-import com.gcr.objectrepository.ContactUsPage;
-import com.gcr.objectrepository.HomePage;
+import com.gcr.objectrepository.Page_ContactUs;
+import com.gcr.objectrepository.Page_Home;
 import com.gcr.reuse.CommonFunctions;
 import com.gcr.wdcmds.ActionDriver;
 
-public class ContactUsTest extends StartBrowser{
+public class Test_ContactUs extends StartBrowser{
 	public WebDriver driver;
 	public ActionDriver aDriver;
 	
@@ -19,7 +19,7 @@ public class ContactUsTest extends StartBrowser{
 	  CommonFunctions cf = new CommonFunctions();
 	  cf.login();
 	  aDriver = new ActionDriver(); 
-	  aDriver.click(ContactUsPage.lnkContactus,"Contact us Button");
+	  aDriver.click(Page_ContactUs.lnkContactus,"Contact us Button");
 	
 	
 	  

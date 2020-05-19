@@ -2,7 +2,7 @@ package com.gcr.objectrepository;
 
 import org.openqa.selenium.By;
 
-public class CreatNewAccount_Page 
+public class Page_CreatNewAccount 
 {
 	public static By rdBtnTitle = By.name("id_gender");
 	public static By txtCustomerFirstname = By.id("customer_firstname");

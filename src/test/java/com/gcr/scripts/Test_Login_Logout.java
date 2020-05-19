@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import com.gcr.config.StartBrowser;
 import com.gcr.reuse.CommonFunctions;
 
-public class Login_Logout extends StartBrowser{
+public class Test_Login_Logout extends StartBrowser{
 	
   @Test
   public void login_logout() throws Exception 

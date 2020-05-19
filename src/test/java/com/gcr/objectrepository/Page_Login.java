@@ -2,7 +2,7 @@ package com.gcr.objectrepository;
 
 import org.openqa.selenium.By;
 
-public class LoginPage {
+public class Page_Login {
 	
 	public static By txtEmaiId = By.id("email");
 	public static By txtPassword = By.id("passwd");

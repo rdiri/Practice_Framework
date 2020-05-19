@@ -6,7 +6,7 @@ import com.gcr.config.StartBrowser;
 import com.gcr.reuse.CommonFunctions;
 import com.gcr.util.Xls_Reader;
 
-public class Login_Logout_FromExcel extends StartBrowser{
+public class Test_Login_Logout_FromExcel extends StartBrowser{
 	
   @Test
   public void login_logout_FromExcel() throws Exception 
