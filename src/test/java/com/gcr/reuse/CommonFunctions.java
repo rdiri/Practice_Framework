@@ -51,8 +51,20 @@ public class CommonFunctions {
 	{
 		StartBrowser.childTest = StartBrowser.parentTest.createNode("Search for Product  :" + productName); 
 		aDriver.type(Page_Home.txtSearchbox, productName, "Typed on search - Text box");
-		aDriver.click(Page_Home.txtSearchbox, "Searchh button");
+		aDriver.click(Page_Home.txtSearchbox, "Search Entered");
 		aDriver.click(Page_Home.btnSubmitSearch, "Clicked on Search - button");
+	}
+	
+	public void AddProducts(String productName) throws Exception
+	{
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("Selected Item  :" + productName); 
+		aDriver.type(Page_Home.imgAllProducts, productName, "Typed on search - Text box");
+	}
+	
+	public void navigatetoApplciation(String url)
+	{
+		StartBrowser.childTest = StartBrowser.parentTest.createNode("Navigate to application"); 
+		aDriver.navigateToApplication(url);
 	}
 }
 ////a[contains(@title,'Contact')]

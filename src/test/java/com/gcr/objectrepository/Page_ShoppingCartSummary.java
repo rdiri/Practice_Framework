@@ -1,5 +1,10 @@
 package com.gcr.objectrepository;
 
-public class Page_ShoppingCartSummary {
+import org.openqa.selenium.By;
+
+public class Page_ShoppingCartSummary 
+{
+	public static By BtnProceedToCheckOut=By.xpath("//span[ text()='Proceed to checkout']");
+			
 
 }

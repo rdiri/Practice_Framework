@@ -1,5 +1,7 @@
 package com.gcr.scripts;
 
+import java.util.ArrayList;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -24,13 +26,19 @@ public class Test_SearchItems extends StartBrowser{
 		aDriver = new ActionDriver();
 
 		cf.login();
-
-		cf.search("Blouse");
-
-		//Choosing products??? 
-		aDriver.click(Page_Home.imgProductImage, "Clicked on product - image");
-		aDriver.click(Page_Home.btnAddToCart, "Clicked on Add to Cart - button");
-		aDriver.click(Page_Home.btnProceedToCheckout, "Clicked on Proceed to Checkout - Button");
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("Blouse");
+		al.add("t-shirt");
+		// to choose from the Bestseller items that appears on the left
+		for (int i = 0; i < al.size(); i++) {
+			cf.search(al.get(i));
+			//Choosing products??? 
+			//aDriver.click(Page_Home.imgProductImage, "Clicked on product - image");
+			aDriver.click(Page_Home.imgProduct(i+1), "Select product");
+			aDriver.click(Page_Home.btnAddToCart, "Clicked on Add to Cart - button");
+			aDriver.click(Page_Home.btnProceedToCheckout, "Clicked on Proceed to Checkout - Button");
+		}
+		
 
 		//Click on Cart
 		aDriver.mouseHover(Page_Home.lnkShoppingCart, "Clicked on Shopping Cart - Link");
@@ -39,3 +47,4 @@ public class Test_SearchItems extends StartBrowser{
 	}
 
 }
+//(//ul[@class='product_list row list']/li//div[@class='product-image-container']/a/img)[1]

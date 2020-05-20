@@ -39,6 +39,20 @@ public class ActionDriver {
 			StartBrowser.childTest.fail("Unable to navigate to URL :"+url);
 		}
 	}
+	
+	/**
+	 * Useful for navigating to application
+	 */
+	public void navigateToApplication(String url)
+	{
+		try {
+			driver.get(url);
+			StartBrowser.childTest.pass("Successfully navigated to URL : "+url);
+			
+		} catch (Exception e) {
+			StartBrowser.childTest.fail("Unable to navigate to URL :"+url);
+		}
+	}
 	/**
 	 * Useful for clicking on buttons, rb, links and check boxes
 	 * @param locator -- Get it from Object repository
@@ -191,6 +205,20 @@ public class ActionDriver {
 		}
 	}
 
+	public void handleAlert(String eleName) throws IOException
+	{
+		try {
+			String amsg=driver.switchTo().alert().getText();
+			driver.switchTo().alert().accept();
+//			driver.switchTo().alert().dismiss(); //this is to click on cancel button in confirmation
+			StartBrowser.childTest.pass("Successfully handled alert : "+eleName + " Alert message is : "+amsg);
+		} catch (Exception e) {
+			StartBrowser.childTest.fail("Unable handle alert "+eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+	}
 	
 	public String screenShot()
 	{
