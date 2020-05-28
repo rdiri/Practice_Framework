@@ -20,7 +20,7 @@ public class WindowsHandling extends StartBrowser{
 	  aDriver = new ActionDriver();
 	  cf.navigatetoApplciation("https://the-internet.herokuapp.com/checkboxes");
 	  aDriver.click(By.xpath("//form[@id='checkboxes']/input[1]"), "Check box 1");
-	  aDriver.click(By.linkText("Elemental Selenium"), "Elemental Selenium Link");
+	  aDriver.click(By.linkText("Elemental Selenium123"), "Elemental Selenium Link");
 	  //switch to child window
 	  aDriver.switchToWindow("Elemental Selenium: Receive a Free, Weekly Tip on Using Selenium like a Pro");
 	  aDriver.type(By.id("email"), "childwindow@gmail.com", "Email Text box");

@@ -3,8 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.gcr.scripts.RegisteredUser_Login_Logout"/>
-      <class name="com.gcr.scripts.Login"/>
+      <class name="com.gcr.scripts.Alerts_Example"/>
+      <class name="com.gcr.scripts.Frames_Example"/>
+      <class name="com.gcr.scripts.WindowsHandling"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

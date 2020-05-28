@@ -1,6 +1,7 @@
 package com.gcr.wdcmds;
 
 import java.io.IOException;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -139,9 +140,9 @@ public class ActionDriver {
 	 * @param locator - dropdown locator
 	 * @param visibleText - visible text to be selected from dropdown
 	 * @param eleName - dropdown name
-	 * @throws IOException
+	 * @throws Exception 
 	 */
-	public void selectTxtFromDropDown(By locator, String visibleText, String eleName) throws IOException
+	public void selectTxtFromDropDown(By locator, String visibleText, String eleName) throws Exception
 	{ 
 		try
 		{
@@ -165,10 +166,10 @@ public class ActionDriver {
 	 * @param locator - Dropdown WebElement been located.
 	 * @param i - Provide Value attribute of the dropdown element being inspected.
 	 * @param eleName - Provide name of the dropdown being use for the program.
-	 * @throws IOException
+	 * @throws Exception 
 	 */
 	
-	public void selectValueFromDropDown(By locator, String i, String eleName) throws IOException
+	public void selectValueFromDropDown(By locator, String i, String eleName) throws Exception
 	{
 		try
 		{
@@ -187,7 +188,7 @@ public class ActionDriver {
 				
 	}
 	
-	public void selectIndexFromDropDown(By locator, int Index, String eleName) throws IOException
+	public void selectIndexFromDropDown(By locator, int Index, String eleName) throws Exception
 	{
 		try
 		{
@@ -205,15 +206,106 @@ public class ActionDriver {
 		}
 	}
 
-	public void handleAlert(String eleName) throws IOException
+	public void handleAlert(String eleName) throws Exception
 	{
 		try {
 			String amsg=driver.switchTo().alert().getText();
-			driver.switchTo().alert().accept();
-//			driver.switchTo().alert().dismiss(); //this is to click on cancel button in confirmation
+			driver.switchTo().alert().accept(); // alert that has a alert msg and ok button.
+//			driver.switchTo().alert().dismiss(); //this is to click on cancel button in confirmation alert
 			StartBrowser.childTest.pass("Successfully handled alert : "+eleName + " Alert message is : "+amsg);
 		} catch (Exception e) {
-			StartBrowser.childTest.fail("Unable handle alert "+eleName,
+			StartBrowser.childTest.fail("Unable to handle alert "+eleName,
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+		
+			}
+	/**
+	 * Used for switching to  window
+	 * @param title -- Title of the  window
+	 * @throws Exception 
+	 */
+	public void switchToWindow(String title) throws Exception
+	{
+		try {
+			
+			//String pWin=driver.getWindowHandle();
+			Set<String> wins=driver.getWindowHandles();
+			
+			for (String windowhandle : wins) {
+				driver.switchTo().window(windowhandle);
+				if(driver.getTitle().contentEquals(title))
+				{
+					StartBrowser.childTest.pass("Successfully switched to  window " + title);
+					break;
+				}
+				else
+				{
+					System.out.println("Iterate the loop");
+				}
+				
+			}
+		}
+		
+			
+		 catch (Exception e) 
+		{
+			 StartBrowser.childTest.fail("Unable Switch to window : verify the title of  window"+title,
+						MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+				StartBrowser.childTest.info(e);
+				throw e;
+		}
+		
+	}
+	/**
+	 * Used for closing child window
+	 * @throws Exception
+	 */
+	
+	public void closeWindow() throws Exception
+	{
+		try {
+			driver.close();
+			StartBrowser.childTest.pass("Successfully closed window");
+		} catch (Exception e) {
+			StartBrowser.childTest.fail("Unable close window",
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+	}
+	/**
+	 * switch to frames
+	 * @param locator -- provide frame xpath
+	 * @param eleName -- frame name
+	 * @throws Exception
+	 */
+	public void switchToFrame(By locator, String eleName) throws Exception
+	{
+		WebElement frameElement=driver.findElement(locator);
+		
+		try {
+			driver.switchTo().frame(frameElement);
+			StartBrowser.childTest.pass("Successfully switched to frame ");
+		} catch (Exception e) {
+			StartBrowser.childTest.fail("Unable switch to frame ",
+					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
+			StartBrowser.childTest.info(e);
+			throw e;
+		}
+	}
+	/**
+	 * come out of the frame . control will be on main window
+	 * @throws Exception
+	 */
+	public void switchOutOfFrame() throws Exception
+	{
+		try {
+			driver.switchTo().defaultContent();
+			StartBrowser.childTest.pass("Successfully switched out of frame ");
+		} catch (Exception e) {
+			StartBrowser.childTest.fail("Unable switch out of frame ",
 					MediaEntityBuilder.createScreenCaptureFromBase64String(screenShot()).build());
 			StartBrowser.childTest.info(e);
 			throw e;

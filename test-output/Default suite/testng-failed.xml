@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.gcr.scripts.Alerts_Example">
+      <class name="com.gcr.scripts.Frames_Example">
         <methods>
           <include name="beforeClass"/>
-          <include name="alerts_ConfirmationBox"/>
           <include name="generatereport"/>
           <include name="methhodName"/>
           <include name="afterClass"/>
+          <include name="frames_Example"/>
         </methods>
-      </class> <!-- com.gcr.scripts.Alerts_Example -->
+      </class> <!-- com.gcr.scripts.Frames_Example -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

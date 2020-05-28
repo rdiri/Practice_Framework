@@ -2,39 +2,39 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-19T21:28:43 EDT" name="Default suite" finished-at="2020-05-19T21:28:56 EDT" duration-ms="12911">
+  <suite started-at="2020-05-20T21:30:21 EDT" name="Default suite" finished-at="2020-05-20T21:30:45 EDT" duration-ms="23488">
     <groups>
     </groups>
-    <test started-at="2020-05-19T21:28:43 EDT" name="Default test" finished-at="2020-05-19T21:28:56 EDT" duration-ms="12911">
-      <class name="com.gcr.scripts.Alerts_Example">
-        <test-method is-config="true" signature="generatereport()[pri:0, instance:com.gcr.scripts.Alerts_Example@7c469c48]" started-at="2020-05-19T21:28:43 EDT" name="generatereport" finished-at="2020-05-19T21:28:43 EDT" duration-ms="333" status="PASS">
+    <test started-at="2020-05-20T21:30:21 EDT" name="Default test" finished-at="2020-05-20T21:30:45 EDT" duration-ms="23488">
+      <class name="com.gcr.scripts.Frames_Example">
+        <test-method is-config="true" signature="generatereport()[pri:0, instance:com.gcr.scripts.Frames_Example@7c469c48]" started-at="2020-05-20T21:30:21 EDT" name="generatereport" finished-at="2020-05-20T21:30:22 EDT" duration-ms="344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- generatereport -->
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.gcr.scripts.Alerts_Example@7c469c48]" started-at="2020-05-19T21:28:43 EDT" name="beforeClass" finished-at="2020-05-19T21:28:51 EDT" duration-ms="7707" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.gcr.scripts.Frames_Example@7c469c48]" started-at="2020-05-20T21:30:22 EDT" name="beforeClass" finished-at="2020-05-20T21:30:29 EDT" duration-ms="7422" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="methhodName(java.lang.reflect.Method)[pri:0, instance:com.gcr.scripts.Alerts_Example@7c469c48]" started-at="2020-05-19T21:28:51 EDT" name="methhodName" finished-at="2020-05-19T21:28:51 EDT" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="methhodName(java.lang.reflect.Method)[pri:0, instance:com.gcr.scripts.Frames_Example@7c469c48]" started-at="2020-05-20T21:30:29 EDT" name="methhodName" finished-at="2020-05-20T21:30:29 EDT" duration-ms="11" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.gcr.scripts.Alerts_Example.alerts_ConfirmationBox() throws java.lang.Exception]]>
+                <![CDATA[public void com.gcr.scripts.Frames_Example.frames_Example() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- methhodName -->
-        <test-method signature="alerts_ConfirmationBox()[pri:0, instance:com.gcr.scripts.Alerts_Example@7c469c48]" started-at="2020-05-19T21:28:51 EDT" name="alerts_ConfirmationBox" finished-at="2020-05-19T21:28:54 EDT" duration-ms="3115" status="PASS">
+        <test-method signature="frames_Example()[pri:0, instance:com.gcr.scripts.Frames_Example@7c469c48]" started-at="2020-05-20T21:30:29 EDT" name="frames_Example" finished-at="2020-05-20T21:30:43 EDT" duration-ms="13994" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- alerts_ConfirmationBox -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.gcr.scripts.Alerts_Example@7c469c48]" started-at="2020-05-19T21:28:54 EDT" name="afterClass" finished-at="2020-05-19T21:28:56 EDT" duration-ms="1686" status="PASS">
+        </test-method> <!-- frames_Example -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.gcr.scripts.Frames_Example@7c469c48]" started-at="2020-05-20T21:30:43 EDT" name="afterClass" finished-at="2020-05-20T21:30:45 EDT" duration-ms="1651" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.gcr.scripts.Alerts_Example -->
+      </class> <!-- com.gcr.scripts.Frames_Example -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
